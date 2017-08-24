@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- H5页面窗口自动调整到设备宽度，并禁止用户缩放页面 -->
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <!-- 当网站添加到主屏幕快速启动方式，可隐藏地址栏，仅针对ios的safari -->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- 忽略将页面中的数字识别为电话号码 -->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!-- 忽略将页面中的数字识别为电话号码 -->
+    <meta content="telephone=no" name="format-detection">
+    <!-- 忽略Android平台中对邮箱地址的识别 -->
+    <meta content="email=no" name="format-detection">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>优购商城</title>
+    <link rel="stylesheet" type="css/text" href="./css/normalize.css">
+    <link rel="stylesheet" href="./statics/mui/css/mui.min.css">
+    <link rel="stylesheet" href="./statics/mui/css/icons-extra.css">
+    <link rel="stylesheet" href="./statics/swiper/swiper.min.css">
+    <link rel="stylesheet" type="css/text" href="./css/index.css">
+    <script src="./statics/mui/js/mui.min.js"></script>
+    <script src="./statics/swiper/swiper.min.js"></script>
+    <script src="./statics/zepto/zepto.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            font-size: 16px;
+        }
+        
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+        
+        ul>li {
+            border: 0;
+            text-align: center;
+        }
+        /* 顶部通栏样式 */
+        
+        #header .mui-icon-extra {
+            margin: 10px 0 0 0;
+        }
+        /* 轮播图样式 */
+        
+        #slider {
+            top: 44px;
+        }
+        
+        #slider .mui-slider-item img {
+            height: 10em;
+        }
+        /* 分类区样式 */
+        
+        #classify>ul {
+            margin-top: 0;
+            width: 100%;
+            background-color: white;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        #classify>ul>li {
+            padding: 1em .5em;
+            border: 0;
+            text-align: center;
+        }
+        
+        #classify>ul>li img {
+            width: 85%;
+        }
+        
+        #classify>ul>li .mui-media-body {
+            font-size: 0.8em;
+        }
+        /* 广告栏样式 */
+        
+        .advantage {
+            width: 100%;
+        }
+        
+        .advantage img {
+            width: 100%;
+        }
+        /* 主要商品区样式 */
+        
+        #main {
+            width: 100%;
+        }
+        
+        #main ul li {
+            background-color: #eee;
+            padding: 0 0 .5em 0;
+        }
+        
+        #main ul li img {
+            width: 100%;
+        }
+        /* 底部分栏样式 */
+        
+        #tab-bar .mui-icon-extra {
+            font-size: 20px;
+            position: relative;
+            top: 4px;
+        }
+        
+        #tab-bar .mui-tab-label {
+            font-size: 11px;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header" class="mui-bar mui-bar-nav">
+        <a class="mui-icon-extra mui-icon-extra-sweep mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">优购商城</h1>
+        <a class="mui-icon mui-icon-search mui-icon-right-nav mui-pull-right"></a>
+    </header>
+
+    <div id="slider" class="mui-slider">
+        <div class="mui-slider-group mui-slider-loop">
+            <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+            <div class="mui-slider-item mui-slider-item-duplicate">
+                <a href="#">
+                    <img src="./images/banner.png">
+                </a>
+            </div>
+            <!-- 第一张 -->
+            <div class="mui-slider-item">
+                <a href="#">
+                    <img src="./images/g2.png">
+                </a>
+            </div>
+            <!-- 第二张 -->
+            <div class="mui-slider-item">
+                <a href="#">
+                    <img src="./images/g1.png">
+                </a>
+            </div>
+            <!-- 第三张 -->
+            <div class="mui-slider-item">
+                <a href="#">
+                    <img src="./images/g2.png">
+                </a>
+            </div>
+            <!-- 第四张 -->
+            <div class="mui-slider-item">
+                <a href="#">
+                    <img src="./images/banner.png">
+                </a>
+            </div>
+            <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+            <div class="mui-slider-item mui-slider-item-duplicate">
+                <a href="#">
+                    <img src="./images/g2.png">
+                </a>
+            </div>
+        </div>
+        <div class="mui-slider-indicator">
+            <div class="mui-indicator mui-active"></div>
+            <div class="mui-indicator"></div>
+            <div class="mui-indicator"></div>
+            <div class="mui-indicator"></div>
+        </div>
+    </div>
+
+    <div id="classify" class="mui-content">
+        <ul class="">
+            <li class="">
+                <a href="#">
+                    <img src="./images/icon.png" alt="">
+                    <div class="mui-media-body">超值大牌</div>
+                </a>
+            </li>
+            <li class="">
+                <a href="#">
+                    <img src="./images/icon1.png" alt="">
+                    <div class="mui-media-body">新品特惠</div>
+                </a>
+            </li>
+            <li class="">
+                <a href="#">
+                    <img src="./images/icon2.png" alt="">
+                    <div class="mui-media-body">免费试用</div>
+                </a>
+            </li>
+            <li class="">
+                <a href="#">
+                    <img src="./images/icon3.png" alt="">
+                    <div class="mui-media-body">一元云购</div>
+                </a>
+            </li>
+            <li class="">
+                <a href="#">
+                    <img src="./images/icon4.png" alt="">
+                    <div class="mui-media-body">热销商品</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="advantage">
+        <img src="./images/adv.png" alt="">
+    </div>
+
+    <div id="main">
+        <ul>
+            <li>
+                <a href="#"><img src="./images/g1.png" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="./images/g2.png" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="./images/g1.png" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="./images/g2.png" alt=""></a>
+            </li>
+        </ul>
+    </div>
+
+    <nav id="tab-bar" class="mui-bar mui-bar-tab">
+        <a class="mui-tab-item mui-active" href="index.html">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item" href="./components/sort.html">
+            <span class="mui-icon-extra mui-icon-extra-class"></span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item" href="./components/salse.html">
+            <span class="mui-icon-extra mui-icon-extra-outline"></span>
+            <span class="mui-tab-label">清仓</span>
+        </a>
+        <a class="mui-tab-item" href="./components/shopcar.html">
+            <span class="mui-icon-extra mui-icon-extra-cart"></span><span class="mui-badge">9</span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-tab-item" href="./components/person.html">
+            <span class="mui-icon mui-icon-person"></span>
+            <span class="mui-tab-label">我的</span>
+        </a>
+    </nav>
+
+    <script type="text/javascript">
+        mui.init({
+
+        });
+
+        var gallery = mui('.mui-slider');
+        gallery.slider({
+            interval: 1000 //自动轮播周期，若为0则不自动播放，默认为0；
+        });
+    </script>
+
+</body>
+
+</html>
