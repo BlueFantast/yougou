@@ -153,14 +153,12 @@
     </nav>
 
     <script type="text/javascript">
+        mui('body').on('tap', 'a', function() {
+            window.top.location.href = this.href;
+        });
         mui('body').on('click', 'a', function() {
             window.top.location.href = this.href;
         });
-
-        // $("#search").on('click', 'div', function() {
-        //     alert(11);
-        //     $(this).addClass('mui-active');
-        // });
     </script>
 </body>
 

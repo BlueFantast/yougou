@@ -31,7 +31,7 @@
         }
         
         #slider .mui-slider-item img {
-            height: 10rem;
+            height: 8rem;
         }
         /* 分类区样式 */
         
@@ -218,6 +218,9 @@
     </nav>
 
     <script type="text/javascript">
+        mui('body').on('tap', 'a', function() {
+            window.top.location.href = this.href;
+        });
         mui('body').on('click', 'a', function() {
             window.top.location.href = this.href;
         });
