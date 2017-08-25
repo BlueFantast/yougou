@@ -16,3 +16,13 @@ ul>li {
     border: 0;
     text-align: center;
 }
+
+
+/* 改善a标签点击时背景变灰问题 */
+
+a:hover,
+a:focus,
+a:active,
+a:visited {
+    background-color: white !important;
+}
