@@ -157,7 +157,7 @@
             if (window.top.location.hostname == "localhost") {
                 window.top.location.href = this.href;
             } else if (window.top.location.hostname = "bluefantast.github.io") {
-                window.top.location.href = this.href;
+                window.top.location.href = this.href.replace('.io/', '.io/yougou/');
             }
         });
         mui('body').on('click', 'a', function() {
@@ -165,7 +165,7 @@
                 window.top.location.href = this.href;
 
             } else if (window.top.location.hostname = "bluefantast.github.io") {
-                window.top.location.href = this.href;
+                window.top.location.href = this.href.replace('.io/', '.io/yougou/');
             }
 
         });
