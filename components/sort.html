@@ -134,19 +134,19 @@
             <span class="mui-icon mui-icon-home"></span>
             <span class="mui-tab-label">首页</span>
         </a>
-        <a class="mui-tab-item" href="sort.html">
+        <a class="mui-tab-item" href="./sort.html">
             <span class="mui-icon-extra mui-icon-extra-class"></span>
             <span class="mui-tab-label">分类</span>
         </a>
-        <a class="mui-tab-item" href="salse.html">
+        <a class="mui-tab-item" href="./salse.html">
             <span class="mui-icon-extra mui-icon-extra-outline"></span>
             <span class="mui-tab-label">清仓</span>
         </a>
-        <a class="mui-tab-item" href="shopcar.html">
+        <a class="mui-tab-item" href="./shopcar.html">
             <span class="mui-icon-extra mui-icon-extra-cart"></span><span class="mui-badge">9</span>
             <span class="mui-tab-label">购物车</span>
         </a>
-        <a class="mui-tab-item" href="person.html">
+        <a class="mui-tab-item" href="./person.html">
             <span class="mui-icon mui-icon-person"></span>
             <span class="mui-tab-label">我的</span>
         </a>
@@ -157,7 +157,7 @@
             if (window.top.location.hostname == "localhost") {
                 window.top.location.href = this.href;
             } else if (window.top.location.hostname = "bluefantast.github.io") {
-                window.top.location.href = this.href.replace('.io/', '.io/yougou/');
+                window.top.location.href = this.href;
             }
         });
         mui('body').on('click', 'a', function() {
@@ -165,7 +165,7 @@
                 window.top.location.href = this.href;
 
             } else if (window.top.location.hostname = "bluefantast.github.io") {
-                window.top.location.href = this.href.replace('.io/', '.io/yougou/');
+                window.top.location.href = this.href;
             }
 
         });
