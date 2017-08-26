@@ -195,23 +195,23 @@
     </div>
 
     <nav id="tab-bar" class="mui-bar mui-bar-tab">
-        <a class="mui-tab-item mui-active" href="/index.html">
+        <a class="mui-tab-item mui-active" href="index.html">
             <span class="mui-icon mui-icon-home"></span>
             <span class="mui-tab-label">首页</span>
         </a>
-        <a class="mui-tab-item" href="/components/sort.html">
+        <a class="mui-tab-item" href="components/sort.html">
             <span class="mui-icon-extra mui-icon-extra-class"></span>
             <span class="mui-tab-label">分类</span>
         </a>
-        <a class="mui-tab-item" href="/components/salse.html">
+        <a class="mui-tab-item" href="components/salse.html">
             <span class="mui-icon-extra mui-icon-extra-outline"></span>
             <span class="mui-tab-label">清仓</span>
         </a>
-        <a class="mui-tab-item" href="/components/shopcar.html">
+        <a class="mui-tab-item" href="components/shopcar.html">
             <span class="mui-icon-extra mui-icon-extra-cart"></span><span class="mui-badge">9</span>
             <span class="mui-tab-label">购物车</span>
         </a>
-        <a class="mui-tab-item" href="/components/person.html">
+        <a class="mui-tab-item" href="components/person.html">
             <span class="mui-icon mui-icon-person"></span>
             <span class="mui-tab-label">我的</span>
         </a>
@@ -221,19 +221,22 @@
         mui('body').on('tap', 'a', function() {
             if (window.top.location.hostname == "localhost") {
                 window.top.location.href = this.href;
-                console.log('localhost');
+                console.log(this.href);
             } else if (window.top.location.hostname = "bluefantast.github.io") {
-                window.top.location.href = window.top.location.origin + '/yougou' + this.href;
-                console.log('bluefantast.github.io');
+                var href = '/yougou/' + this.href;
+                window.top.location.href = href;
+                console.log(this.href);
             }
         });
         mui('body').on('click', 'a', function() {
             if (window.top.location.hostname == "localhost") {
+                console.log(this.href);
                 window.top.location.href = this.href;
-                console.log('localhost');
+
             } else if (window.top.location.hostname = "bluefantast.github.io") {
-                window.top.location.href = window.top.location.origin + '/yougou' + this.href;
-                console.log('bluefantast.github.io');
+                var href = '/yougou/' + this.href;
+                window.top.location.href = href;
+                console.log(this.href);
             }
 
         });
