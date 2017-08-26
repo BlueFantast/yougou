@@ -219,17 +219,21 @@
 
     <script type="text/javascript">
         mui('body').on('tap', 'a', function() {
-            if (window.location.hostname == "localhost") {
+            if (window.top.location.hostname == "localhost") {
                 window.top.location.href = this.href;
-            } else if (window.location.hostname = "bluefantast.github.io") {
+                console.log('localhost');
+            } else if (window.top.location.hostname = "bluefantast.github.io") {
                 window.top.location.href = window.top.location.origin + '/yougou' + this.href;
+                console.log('bluefantast.github.io');
             }
         });
         mui('body').on('click', 'a', function() {
-            if (window.location.hostname == "localhost") {
+            if (window.top.location.hostname == "localhost") {
                 window.top.location.href = this.href;
-            } else if (window.location.hostname = "bluefantast.github.io") {
+                console.log('localhost');
+            } else if (window.top.location.hostname = "bluefantast.github.io") {
                 window.top.location.href = window.top.location.origin + '/yougou' + this.href;
+                console.log('bluefantast.github.io');
             }
 
         });
