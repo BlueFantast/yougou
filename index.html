@@ -219,10 +219,19 @@
 
     <script type="text/javascript">
         mui('body').on('tap', 'a', function() {
-            window.top.location.href = this.href;
+            if (window.location.hostname == "localhost") {
+                window.top.location.href = this.href;
+            } else if (window.location.hostname = "bluefantast.github.io") {
+                window.top.location.href = window.top.location.origin + '/yougou' + this.href;
+            }
         });
         mui('body').on('click', 'a', function() {
-            window.top.location.href = this.href;
+            if (window.location.hostname == "localhost") {
+                window.top.location.href = this.href;
+            } else if (window.location.hostname = "bluefantast.github.io") {
+                window.top.location.href = window.top.location.origin + '/yougou' + this.href;
+            }
+
         });
 
         var gallery = mui('.mui-slider');
