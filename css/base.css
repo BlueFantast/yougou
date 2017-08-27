@@ -17,6 +17,15 @@ ul>li {
     text-align: center;
 }
 
+a {
+    text-decoration: none;
+    color: gray;
+}
+
+i {
+    color: #007aff;
+}
+
 
 /* 改善a标签点击时背景变灰问题 */
 
