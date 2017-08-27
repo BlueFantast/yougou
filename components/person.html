@@ -296,7 +296,7 @@
     </div>
 
     <nav id="tab-bar" class="mui-bar mui-bar-tab">
-        <a class="mui-tab-item mui-active" href="../index.html">
+        <a class="mui-tab-item" href="../index.html">
             <span class="mui-icon mui-icon-home"></span>
             <span class="mui-tab-label">首页</span>
         </a>
@@ -312,13 +312,29 @@
             <span class="mui-icon-extra mui-icon-extra-cart"></span><span class="mui-badge">9</span>
             <span class="mui-tab-label">购物车</span>
         </a>
-        <a class="mui-tab-item" href="./person.html">
+        <a class="mui-tab-item mui-active" href="./person.html">
             <span class="mui-icon mui-icon-person"></span>
             <span class="mui-tab-label">我的</span>
         </a>
     </nav>
 
     <script type="text/javascript">
+        mui('body').on('tap', 'a', function() {
+            if (window.top.location.hostname == "localhost") {
+                window.top.location.href = this.href;
+            } else if (window.top.location.hostname = "bluefantast.github.io") {
+                window.top.location.href = this.href;
+            }
+        });
+        mui('body').on('click', 'a', function() {
+            if (window.top.location.hostname == "localhost") {
+                window.top.location.href = this.href;
+
+            } else if (window.top.location.hostname = "bluefantast.github.io") {
+                window.top.location.href = this.href;
+            }
+
+        });
     </script>
 </body>
 
