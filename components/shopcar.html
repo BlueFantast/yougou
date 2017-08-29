@@ -176,8 +176,8 @@
             color: black;
         }
         
-        #total .total-prices :nth-child(1) {
-            font-size: 1.2rem;
+        #total .total-prices p:first-child {
+            font-size: 1.1rem;
         }
         
         .clearing {
@@ -446,36 +446,55 @@
                     $(this).prop('checked', true);
                 } else {
                     $(this).prop('checked', false);
+                    $('[name="checkall"]').prop('checked', false);
                 }
                 storePrices($(this));
                 selectAll($(this));
                 totalPrices();
+                selectAny()
             });
             // 点击店铺复选框切换全选反选
             $('[name="checkmore"]').on('change', function(e) {
-                    e.preventDefault();
+                    // e.preventDefault();
                     if ($(this).attr('checked')) {
                         $(this).parents('.shops').children('.mui-table-view').find('input').prop('checked', true);
-                        storePrices($(this));
-                        totalPrices();
+                        // storePrices($(this));
+                        // totalPrices();
                     } else {
                         $(this).parents('.shops').children('.mui-table-view').find('input').prop('checked', false);
-                        storePrices($(this));
-                        totalPrices();
+                        $('[name="checkall"]').prop('checked', false);
+                        // storePrices($(this));
+                        // totalPrices();
                     }
+                    storePrices($(this));
+                    totalPrices();
+                    selectAny();
                 })
                 // 点击全选按钮实现所有商品的切换
             $('[name="checkall"]').on('change', function(e) {
-                    e.preventDefault();
+                    // e.preventDefault();
                     if ($(this).attr('checked')) {
                         $('[type="checkbox"]').prop('checked', true);
+                        $('[name="checkmore"]').trigger('click');
                         totalPrices();
                     } else {
                         $('[type="checkbox"]').prop('checked', false);
+                        // $('[name="checkmore"]').triggerHandler('tap');
                         totalPrices();
+                        $('.all-prices').children('span').text('0.00');
                     }
                 })
-                // 统计单个店铺是所有商品是否选择
+                // 统计所有复选框状态
+            function selectAny() {
+                var flag = true;
+                $('#shopcar').children().find('input[name="checkbox"]').each(function(index, item) {
+                    if (!$(item).attr('checked')) {
+                        flag = false;
+                    }
+                });
+                $('input[name="checkall"]').prop('checked', flag);
+            }
+            // 统计单个店铺是所有商品是否选择
             function selectAll(ele) {
                 var flag = true;
                 ele.parents('.shops').children('.mui-table-view').find('input[name="checkbox"]').each(function(index, item) {
