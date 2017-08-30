@@ -420,7 +420,7 @@
 
     <script>
         $(function() {
-            // 点击增加减少商品数量
+            // 点击按钮增加或减少商品数量
             $(document)
                 .on('tap', '.good-add', function(e) {
                     var count = $(this).siblings('.good-num').text() - 0;
@@ -442,13 +442,6 @@
 
             // 点击商品复选框切换选择状态
             $('[name="checkbox"]').on('change', function(e) {
-                e.preventDefault();
-                if ($(this).attr('checked')) {
-                    $(this).prop('checked', true);
-                } else {
-                    $(this).prop('checked', false);
-                    $('[name="checkall"]').prop('checked', false);
-                }
                 storePrices($(this));
                 selectAll($(this));
                 totalPrices();
@@ -456,36 +449,25 @@
             });
             // 点击店铺复选框切换全选反选
             $('[name="checkmore"]').on('change', function(e) {
-                    // e.preventDefault();
-                    if ($(this).attr('checked')) {
-                        $(this).parents('.shops').children('.mui-table-view').find('input').prop('checked', true);
-                        // storePrices($(this));
-                        // totalPrices();
-                    } else {
-                        $(this).parents('.shops').children('.mui-table-view').find('input').prop('checked', false);
-                        $('[name="checkall"]').prop('checked', false);
-                        // storePrices($(this));
-                        // totalPrices();
-                    }
+
+                    var flag = $(this).attr('checked');
+                    $(this).parents('.shops').children('.mui-table-view').find('input').prop('checked', flag ? true : false);
                     storePrices($(this));
                     totalPrices();
                     selectAny();
                 })
                 // 点击全选按钮实现所有商品的切换
-            $('[name="checkall"]').on('change', function(e) {
-                    // e.preventDefault();
-                    if ($(this).attr('checked')) {
-                        $('[type="checkbox"]').prop('checked', true);
-                        $('[name="checkmore"]').trigger('click');
-                        totalPrices();
-                    } else {
-                        $('[type="checkbox"]').prop('checked', false);
-                        // $('[name="checkmore"]').triggerHandler('tap');
-                        totalPrices();
-                        $('.all-prices').children('span').text('0.00');
-                    }
+            $('[name="checkall"]').on('click', function(e) {
+                    var flag = $(this).attr('checked');
+                    $('#shopcar').children().find('input[type="checkbox"]').each(function(index, item) {
+                        $(item).prop('checked', flag);
+                    });
+                    $('[name="checkmore"]').each(function(index, item) {
+                        storePrices($(item)); //统计每个店铺的总价格
+                    });
+                    totalPrices();
                 })
-                // 统计所有复选框状态
+                // 统计所有商品复选框状态
             function selectAny() {
                 var flag = true;
                 $('#shopcar').children().find('input[name="checkbox"]').each(function(index, item) {
@@ -495,7 +477,7 @@
                 });
                 $('input[name="checkall"]').prop('checked', flag);
             }
-            // 统计单个店铺是所有商品是否选择
+            // 统计单个店铺所有商品是否选择
             function selectAll(ele) {
                 var flag = true;
                 ele.parents('.shops').children('.mui-table-view').find('input[name="checkbox"]').each(function(index, item) {
@@ -525,6 +507,7 @@
                 });
                 // console.log(storeAll);
                 ele.parents('.shops').children('.all-prices').children('span').text(storeAll + '.00');
+                return storeAll;
             }
             // 统计所有选中商品的总价格
             function totalPrices() {
